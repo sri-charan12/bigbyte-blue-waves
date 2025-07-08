@@ -17,7 +17,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary mt-16">
+    <footer className="bg-gradient-to-br from-secondary to-accent mt-16 shadow-elegant">
       {/* Features section */}
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-8">

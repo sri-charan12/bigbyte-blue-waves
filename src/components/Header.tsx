@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useToast } from "@/hooks/use-toast";
 import { 
   Search, 
   ShoppingCart, 
@@ -15,12 +16,38 @@ import {
 } from "lucide-react";
 
 const Header = () => {
-  const [cartCount] = useState(3);
+  const [cartCount, setCartCount] = useState(3);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [wishlistCount] = useState(2);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchQuery)}`);
+      toast({
+        title: "Searching...",
+        description: `Looking for "${searchQuery}"`,
+      });
+    }
+  };
+
+  const handleAddToWishlist = () => {
+    toast({
+      title: "Added to Wishlist",
+      description: "Item saved for later",
+    });
+  };
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
 
   return (
-    <header className="w-full border-b border-border bg-background">
+    <header className="w-full border-b border-border bg-background shadow-soft">
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground py-2">
+      <div className="bg-gradient-to-r from-primary to-primary-glow text-primary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
@@ -68,20 +95,32 @@ const Header = () => {
           </nav>
 
           {/* Search bar */}
-          <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
+          <form onSubmit={handleSearch} className="hidden md:flex items-center flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
               <Input 
                 placeholder="Search products..." 
                 className="pl-10 bg-secondary border-none"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-          </div>
+          </form>
 
           {/* User actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hidden md:flex relative"
+              onClick={handleAddToWishlist}
+            >
               <Heart size={20} />
+              {wishlistCount > 0 && (
+                <Badge className="absolute -top-2 -right-2 h-4 w-4 rounded-full p-0 text-xs">
+                  {wishlistCount}
+                </Badge>
+              )}
             </Button>
             
             <Link to="/cart">
@@ -95,7 +134,12 @@ const Header = () => {
               </Button>
             </Link>
 
-            <Button variant="ghost" size="icon" className="hidden md:flex">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hidden md:flex"
+              onClick={handleProfileClick}
+            >
               <User size={20} />
             </Button>
 
