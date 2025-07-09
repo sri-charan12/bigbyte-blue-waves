@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 const Header = () => {
-  const [cartCount, setCartCount] = useState(3);
+  const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
-  const [wishlistCount] = useState(2);
+  const [wishlistCount] = useState(0);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -85,6 +85,12 @@ const Header = () => {
             </Link>
             <Link to="/categories" className="text-foreground hover:text-primary transition-colors">
               Categories
+            </Link>
+            <Link to="/deals" className="text-foreground hover:text-primary transition-colors">
+              Deals
+            </Link>
+            <Link to="/compare" className="text-foreground hover:text-primary transition-colors">
+              Compare
             </Link>
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About
@@ -169,6 +175,12 @@ const Header = () => {
                     </Link>
                     <Link to="/categories" className="text-foreground hover:text-primary transition-colors py-2">
                       Categories
+                    </Link>
+                    <Link to="/deals" className="text-foreground hover:text-primary transition-colors py-2">
+                      Deals
+                    </Link>
+                    <Link to="/compare" className="text-foreground hover:text-primary transition-colors py-2">
+                      Compare
                     </Link>
                     <Link to="/about" className="text-foreground hover:text-primary transition-colors py-2">
                       About

@@ -125,8 +125,8 @@ const Home = () => {
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <Link to="/categories">
-                    Browse Categories
+                  <Link to="/deals">
+                    View Deals
                   </Link>
                 </Button>
               </div>
@@ -239,8 +239,10 @@ const Home = () => {
                 <p className="text-muted-foreground mb-4">
                   Get up to 50% off on selected electronics
                 </p>
-                <Button variant="premium" size="lg">
-                  Shop Sale
+                <Button variant="premium" size="lg" asChild>
+                  <Link to="/deals">
+                    Shop Sale
+                  </Link>
                 </Button>
               </div>
               <div className="grid grid-cols-2 gap-4">
