@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
   Star, 
   ArrowRight, 
@@ -14,6 +15,7 @@ import {
 } from "lucide-react";
 
 const Home = () => {
+  const { user } = useAuth();
   const featuredProducts = [
     {
       id: 1,
@@ -124,11 +126,19 @@ const Home = () => {
                     Shop Now <ArrowRight className="ml-2" size={20} />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/deals">
-                    View Deals
-                  </Link>
-                </Button>
+                {user ? (
+                  <Button variant="outline" size="lg" asChild>
+                    <Link to="/profile">
+                      My Profile
+                    </Link>
+                  </Button>
+                ) : (
+                  <Button variant="outline" size="lg" asChild>
+                    <Link to="/auth">
+                      Sign In
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
             <div className="relative">

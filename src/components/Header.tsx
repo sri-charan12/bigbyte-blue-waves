@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -12,7 +13,8 @@ import {
   Menu, 
   Heart,
   Phone,
-  Mail
+  Mail,
+  LogOut
 } from "lucide-react";
 
 const Header = () => {
@@ -21,6 +23,7 @@ const Header = () => {
   const [wishlistCount] = useState(0);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user, signOut } = useAuth();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,7 +44,20 @@ const Header = () => {
   };
 
   const handleProfileClick = () => {
-    navigate("/profile");
+    if (user) {
+      navigate("/profile");
+    } else {
+      navigate("/auth");
+    }
+  };
+
+  const handleLogout = async () => {
+    await signOut();
+    toast({
+      title: "Signed out",
+      description: "You have been successfully signed out.",
+    });
+    navigate("/");
   };
 
   return (
@@ -140,14 +156,35 @@ const Header = () => {
               </Button>
             </Link>
 
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="hidden md:flex"
-              onClick={handleProfileClick}
-            >
-              <User size={20} />
-            </Button>
+            {user ? (
+              <div className="hidden md:flex items-center space-x-2">
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={handleProfileClick}
+                  title="Profile"
+                >
+                  <User size={20} />
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={handleLogout}
+                  title="Sign out"
+                >
+                  <LogOut size={20} />
+                </Button>
+              </div>
+            ) : (
+              <Button 
+                variant="outline"
+                size="sm"
+                className="hidden md:flex"
+                onClick={() => navigate("/auth")}
+              >
+                Sign In
+              </Button>
+            )}
 
             {/* Mobile menu */}
             <Sheet>
@@ -194,9 +231,20 @@ const Header = () => {
                     <Button variant="ghost" size="icon">
                       <Heart size={20} />
                     </Button>
-                    <Button variant="ghost" size="icon">
-                      <User size={20} />
-                    </Button>
+                    {user ? (
+                      <>
+                        <Button variant="ghost" size="icon" onClick={handleProfileClick}>
+                          <User size={20} />
+                        </Button>
+                        <Button variant="ghost" size="icon" onClick={handleLogout}>
+                          <LogOut size={20} />
+                        </Button>
+                      </>
+                    ) : (
+                      <Button variant="outline" size="sm" onClick={() => navigate("/auth")}>
+                        Sign In
+                      </Button>
+                    )}
                   </div>
                 </div>
               </SheetContent>

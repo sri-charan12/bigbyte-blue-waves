@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -23,15 +25,56 @@ import {
 } from "lucide-react";
 
 const Profile = () => {
+  const { user } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@email.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Tech Street, Digital City, DC 12345",
-    joinDate: "January 2023"
+    firstName: "",
+    lastName: "",
+    email: user?.email || "",
+    phone: "",
+    address: "",
+    joinDate: ""
   });
+  const [userProfile, setUserProfile] = useState<any>(null);
+
+  useEffect(() => {
+    if (user) {
+      // Set email from auth user
+      setProfile(prev => ({
+        ...prev,
+        email: user.email || "",
+        joinDate: new Date(user.created_at).toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long' 
+        })
+      }));
+
+      // Fetch profile data from database
+      fetchProfile();
+    }
+  }, [user]);
+
+  const fetchProfile = async () => {
+    if (!user) return;
+
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('user_id', user.id)
+      .single();
+
+    if (data) {
+      setUserProfile(data);
+      if (data.display_name) {
+        const nameParts = data.display_name.split(' ');
+        setProfile(prev => ({
+          ...prev,
+          firstName: nameParts[0] || "",
+          lastName: nameParts.slice(1).join(' ') || ""
+        }));
+      }
+    }
+  };
 
   const orders = [
     {
@@ -72,9 +115,25 @@ const Profile = () => {
     }
   ];
 
-  const handleSaveProfile = () => {
-    setIsEditing(false);
-    // In a real app, this would save to backend
+  const handleSaveProfile = async () => {
+    if (!user) return;
+
+    const displayName = `${profile.firstName} ${profile.lastName}`.trim();
+    
+    const { error } = await supabase
+      .from('profiles')
+      .upsert({
+        user_id: user.id,
+        display_name: displayName,
+        updated_at: new Date().toISOString()
+      });
+
+    if (error) {
+      console.error('Error updating profile:', error);
+    } else {
+      setIsEditing(false);
+      fetchProfile(); // Refresh the profile data
+    }
   };
 
   return (
