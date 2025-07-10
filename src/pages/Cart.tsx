@@ -17,13 +17,18 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Import product images
+import headphonesWirelessImage from "@/assets/headphones-wireless.jpg";
+import webcam4kImage from "@/assets/webcam-4k.jpg";
+import keyboardGamingImage from "@/assets/keyboard-gaming.jpg";
+
 const Cart = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
       name: "Wireless Bluetooth Headphones",
       price: 199.99,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       quantity: 2,
       inStock: true
     },
@@ -31,7 +36,7 @@ const Cart = () => {
       id: 2,
       name: "4K Ultra HD Webcam",
       price: 129.99,
-      image: "/placeholder.svg",
+      image: webcam4kImage,
       quantity: 1,
       inStock: true
     },
@@ -39,7 +44,7 @@ const Cart = () => {
       id: 3,
       name: "Gaming Mechanical Keyboard",
       price: 89.99,
-      image: "/placeholder.svg",
+      image: keyboardGamingImage,
       quantity: 1,
       inStock: false
     }

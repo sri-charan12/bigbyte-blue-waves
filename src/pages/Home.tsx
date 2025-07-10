@@ -14,6 +14,17 @@ import {
   Heart
 } from "lucide-react";
 
+// Import product images
+import heroTechImage from "@/assets/hero-tech.jpg";
+import headphonesWirelessImage from "@/assets/headphones-wireless.jpg";
+import webcam4kImage from "@/assets/webcam-4k.jpg";
+import keyboardGamingImage from "@/assets/keyboard-gaming.jpg";
+import chargingPadImage from "@/assets/charging-pad.jpg";
+import smartwatchProImage from "@/assets/smartwatch-pro.jpg";
+import earbudsNoiseCancellingImage from "@/assets/earbuds-noise-cancelling.jpg";
+import ssdPortableImage from "@/assets/ssd-portable.jpg";
+import mouseGamingImage from "@/assets/mouse-gaming.jpg";
+
 const Home = () => {
   const { user } = useAuth();
   const featuredProducts = [
@@ -22,7 +33,7 @@ const Home = () => {
       name: "Wireless Bluetooth Headphones",
       price: 199.99,
       originalPrice: 249.99,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       rating: 4.8,
       reviews: 324,
       badge: "Best Seller"
@@ -32,7 +43,7 @@ const Home = () => {
       name: "4K Ultra HD Webcam",
       price: 129.99,
       originalPrice: 169.99,
-      image: "/placeholder.svg",
+      image: webcam4kImage,
       rating: 4.6,
       reviews: 189,
       badge: "New"
@@ -42,7 +53,7 @@ const Home = () => {
       name: "Gaming Mechanical Keyboard",
       price: 89.99,
       originalPrice: 119.99,
-      image: "/placeholder.svg",
+      image: keyboardGamingImage,
       rating: 4.9,
       reviews: 512,
       badge: "Hot Deal"
@@ -52,7 +63,7 @@ const Home = () => {
       name: "Wireless Charging Pad",
       price: 39.99,
       originalPrice: 59.99,
-      image: "/placeholder.svg",
+      image: chargingPadImage,
       rating: 4.5,
       reviews: 267,
       badge: "Sale"
@@ -62,7 +73,7 @@ const Home = () => {
       name: "Smart Watch Pro",
       price: 299.99,
       originalPrice: 399.99,
-      image: "/placeholder.svg",
+      image: smartwatchProImage,
       rating: 4.7,
       reviews: 891,
       badge: "Premium"
@@ -72,7 +83,7 @@ const Home = () => {
       name: "Noise Cancelling Earbuds",
       price: 159.99,
       originalPrice: 199.99,
-      image: "/placeholder.svg",
+      image: earbudsNoiseCancellingImage,
       rating: 4.9,
       reviews: 445,
       badge: "Top Rated"
@@ -82,7 +93,7 @@ const Home = () => {
       name: "Portable SSD 1TB",
       price: 89.99,
       originalPrice: 129.99,
-      image: "/placeholder.svg",
+      image: ssdPortableImage,
       rating: 4.8,
       reviews: 623,
       badge: "Fast Storage"
@@ -92,7 +103,7 @@ const Home = () => {
       name: "Wireless Gaming Mouse",
       price: 69.99,
       originalPrice: 89.99,
-      image: "/placeholder.svg",
+      image: mouseGamingImage,
       rating: 4.6,
       reviews: 789,
       badge: "Gaming"
@@ -144,7 +155,7 @@ const Home = () => {
             <div className="relative">
               <div className="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm">
                 <img 
-                  src="/placeholder.svg" 
+                  src={heroTechImage} 
                   alt="Featured Products" 
                   className="w-full h-80 object-cover rounded-lg"
                 />
