@@ -27,7 +27,7 @@ const Cart = () => {
     {
       id: 1,
       name: "Wireless Bluetooth Headphones",
-      price: 199.99,
+      price: 16499,
       image: headphonesWirelessImage,
       quantity: 2,
       inStock: true
@@ -35,7 +35,7 @@ const Cart = () => {
     {
       id: 2,
       name: "4K Ultra HD Webcam",
-      price: 129.99,
+      price: 10799,
       image: webcam4kImage,
       quantity: 1,
       inStock: true
@@ -43,7 +43,7 @@ const Cart = () => {
     {
       id: 3,
       name: "Gaming Mechanical Keyboard",
-      price: 89.99,
+      price: 7499,
       image: keyboardGamingImage,
       quantity: 1,
       inStock: false
@@ -67,8 +67,8 @@ const Cart = () => {
   };
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = 15.99;
-  const tax = subtotal * 0.08;
+  const shipping = 199;
+  const tax = subtotal * 0.18; // GST in India
   const total = subtotal + shipping + tax;
 
   if (cartItems.length === 0) {
@@ -134,9 +134,9 @@ const Cart = () => {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-semibold text-foreground">{item.name}</h3>
-                          <p className="text-sm text-muted-foreground">
-                            ${item.price.toFixed(2)} each
-                          </p>
+                           <p className="text-sm text-muted-foreground">
+                             ₹{item.price.toLocaleString('en-IN')} each
+                           </p>
                           {!item.inStock && (
                             <p className="text-sm text-destructive">This item is out of stock</p>
                           )}
@@ -181,10 +181,10 @@ const Cart = () => {
                           </Button>
                         </div>
                         
-                        <div className="text-right">
-                          <p className="font-semibold text-foreground">
-                            ${(item.price * item.quantity).toFixed(2)}
-                          </p>
+                         <div className="text-right">
+                           <p className="font-semibold text-foreground">
+                             ₹{(item.price * item.quantity).toLocaleString('en-IN')}
+                           </p>
                         </div>
                       </div>
                     </div>
@@ -201,23 +201,23 @@ const Cart = () => {
                 <CardTitle>Order Summary</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Subtotal</span>
-                  <span className="text-foreground">${subtotal.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Shipping</span>
-                  <span className="text-foreground">${shipping.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Tax</span>
-                  <span className="text-foreground">${tax.toFixed(2)}</span>
-                </div>
-                <Separator />
-                <div className="flex justify-between font-semibold">
-                  <span>Total</span>
-                  <span className="text-primary">${total.toFixed(2)}</span>
-                </div>
+                 <div className="flex justify-between text-sm">
+                   <span className="text-muted-foreground">Subtotal</span>
+                   <span className="text-foreground">₹{subtotal.toLocaleString('en-IN')}</span>
+                 </div>
+                 <div className="flex justify-between text-sm">
+                   <span className="text-muted-foreground">Shipping</span>
+                   <span className="text-foreground">₹{shipping.toLocaleString('en-IN')}</span>
+                 </div>
+                 <div className="flex justify-between text-sm">
+                   <span className="text-muted-foreground">GST (18%)</span>
+                   <span className="text-foreground">₹{Math.round(tax).toLocaleString('en-IN')}</span>
+                 </div>
+                 <Separator />
+                 <div className="flex justify-between font-semibold">
+                   <span>Total</span>
+                   <span className="text-primary">₹{Math.round(total).toLocaleString('en-IN')}</span>
+                 </div>
                 
                 <div className="space-y-3 pt-4">
                   <Button className="w-full" size="lg">
@@ -249,10 +249,10 @@ const Cart = () => {
             {/* Benefits */}
             <Card>
               <CardContent className="p-4 space-y-3">
-                <div className="flex items-center space-x-3 text-sm">
-                  <Truck size={16} className="text-primary" />
-                  <span className="text-muted-foreground">Free shipping on orders over $50</span>
-                </div>
+                 <div className="flex items-center space-x-3 text-sm">
+                   <Truck size={16} className="text-primary" />
+                   <span className="text-muted-foreground">Free shipping on orders over ₹4,000</span>
+                 </div>
                 <div className="flex items-center space-x-3 text-sm">
                   <Shield size={16} className="text-primary" />
                   <span className="text-muted-foreground">Secure checkout guaranteed</span>

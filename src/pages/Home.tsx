@@ -31,8 +31,8 @@ const Home = () => {
     {
       id: 1,
       name: "Wireless Bluetooth Headphones",
-      price: 199.99,
-      originalPrice: 249.99,
+      price: 16499,
+      originalPrice: 20599,
       image: headphonesWirelessImage,
       rating: 4.8,
       reviews: 324,
@@ -41,8 +41,8 @@ const Home = () => {
     {
       id: 2,
       name: "4K Ultra HD Webcam",
-      price: 129.99,
-      originalPrice: 169.99,
+      price: 10799,
+      originalPrice: 14099,
       image: webcam4kImage,
       rating: 4.6,
       reviews: 189,
@@ -51,8 +51,8 @@ const Home = () => {
     {
       id: 3,
       name: "Gaming Mechanical Keyboard",
-      price: 89.99,
-      originalPrice: 119.99,
+      price: 7499,
+      originalPrice: 9999,
       image: keyboardGamingImage,
       rating: 4.9,
       reviews: 512,
@@ -61,8 +61,8 @@ const Home = () => {
     {
       id: 4,
       name: "Wireless Charging Pad",
-      price: 39.99,
-      originalPrice: 59.99,
+      price: 3299,
+      originalPrice: 4999,
       image: chargingPadImage,
       rating: 4.5,
       reviews: 267,
@@ -71,8 +71,8 @@ const Home = () => {
     {
       id: 5,
       name: "Smart Watch Pro",
-      price: 299.99,
-      originalPrice: 399.99,
+      price: 24999,
+      originalPrice: 33299,
       image: smartwatchProImage,
       rating: 4.7,
       reviews: 891,
@@ -81,8 +81,8 @@ const Home = () => {
     {
       id: 6,
       name: "Noise Cancelling Earbuds",
-      price: 159.99,
-      originalPrice: 199.99,
+      price: 13299,
+      originalPrice: 16699,
       image: earbudsNoiseCancellingImage,
       rating: 4.9,
       reviews: 445,
@@ -91,8 +91,8 @@ const Home = () => {
     {
       id: 7,
       name: "Portable SSD 1TB",
-      price: 89.99,
-      originalPrice: 129.99,
+      price: 7499,
+      originalPrice: 10799,
       image: ssdPortableImage,
       rating: 4.8,
       reviews: 623,
@@ -101,8 +101,8 @@ const Home = () => {
     {
       id: 8,
       name: "Wireless Gaming Mouse",
-      price: 69.99,
-      originalPrice: 89.99,
+      price: 5799,
+      originalPrice: 7499,
       image: mouseGamingImage,
       rating: 4.6,
       reviews: 789,
@@ -229,10 +229,10 @@ const Home = () => {
                     </div>
                     <span className="text-sm text-muted-foreground">({product.reviews})</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xl font-bold text-primary">${product.price}</span>
-                    <span className="text-sm text-muted-foreground line-through">${product.originalPrice}</span>
-                  </div>
+                   <div className="flex items-center space-x-2">
+                     <span className="text-xl font-bold text-primary">₹{product.price.toLocaleString('en-IN')}</span>
+                     <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                   </div>
                   <Button className="w-full" size="sm">
                     <ShoppingCart size={16} className="mr-2" />
                     Add to Cart
@@ -275,8 +275,8 @@ const Home = () => {
                         alt={product.name}
                         className="w-full h-24 object-cover rounded mb-2"
                       />
-                      <h4 className="font-medium text-sm">{product.name}</h4>
-                      <p className="text-primary font-bold">${product.price}</p>
+                       <h4 className="font-medium text-sm">{product.name}</h4>
+                       <p className="text-primary font-bold">₹{product.price.toLocaleString('en-IN')}</p>
                     </CardContent>
                   </Card>
                 ))}
