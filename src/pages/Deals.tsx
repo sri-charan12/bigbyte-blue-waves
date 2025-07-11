@@ -128,24 +128,29 @@ const Deals = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-12">
+    <div className="space-y-12">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl p-8 text-center">
-        <div className="space-y-4">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Zap className="text-yellow-500" size={32} />
-            <h1 className="text-4xl font-bold text-foreground">Flash Deals</h1>
-            <Zap className="text-yellow-500" size={32} />
-          </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't miss out on these limited-time offers! Save up to 60% on your favorite tech products.
-          </p>
-          <div className="flex items-center justify-center gap-4 text-lg font-semibold">
-            <Clock className="text-red-500" size={24} />
-            <span className="text-red-500">Limited Time Only!</span>
+      <section className="gradient-hero py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.15),transparent)] pointer-events-none"></div>
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="space-y-4 animate-fade-in-up">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Zap className="text-white floating" size={32} />
+              <h1 className="text-4xl lg:text-5xl font-bold text-white">Flash Deals</h1>
+              <Zap className="text-white floating" size={32} />
+            </div>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up stagger-1">
+              Don't miss out on these limited-time offers! Save up to 60% on your favorite tech products.
+            </p>
+            <div className="flex items-center justify-center gap-4 text-lg font-semibold animate-bounce-in stagger-2">
+              <Clock className="text-white pulse-glow" size={24} />
+              <span className="text-white">Limited Time Only!</span>
+            </div>
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto px-4 space-y-12">
 
       {/* Deal Categories */}
       <section>
@@ -338,6 +343,7 @@ const Deals = () => {
           </p>
         </div>
       </section>
+      </div>
     </div>
   );
 };

@@ -67,14 +67,15 @@ const About = () => {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 to-accent/20 py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="gradient-hero py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.15),transparent)] pointer-events-none"></div>
+        <div className="relative container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-6">
-            <Badge className="mb-4">About BigByte</Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground">
-              Connecting People with <span className="text-primary">Technology</span>
+            <Badge className="mb-4 animate-bounce-in glass-effect border-white/30 text-white">About BigByte</Badge>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white animate-fade-in-up">
+              Connecting People with <span className="floating text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">Technology</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-white/90 leading-relaxed animate-fade-in-up stagger-1">
               Since 2020, BigByte has been at the forefront of bringing cutting-edge technology 
               to consumers worldwide. We believe technology should enhance lives, not complicate them.
             </p>
@@ -86,12 +87,12 @@ const About = () => {
       <section className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center">
+            <Card key={index} className={`text-center hover-glow transition-all duration-500 transform hover:scale-105 animate-bounce-in-scale stagger-${index + 1}`}>
               <CardContent className="p-6">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:bg-primary/20 animate-rotate-in">
                   <stat.icon className="text-primary" size={32} />
                 </div>
-                <div className="text-3xl font-bold text-foreground mb-2">{stat.number}</div>
+                <div className="text-3xl font-bold text-foreground mb-2 floating">{stat.number}</div>
                 <p className="text-muted-foreground">{stat.label}</p>
               </CardContent>
             </Card>
@@ -101,8 +102,8 @@ const About = () => {
 
       {/* Story Section */}
       <section className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-fade-in">
+          <div className="space-y-6 animate-slide-in-left">
             <h2 className="text-3xl font-bold text-foreground">Our Story</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -125,7 +126,7 @@ const About = () => {
               Shop Our Products
             </Button>
           </div>
-          <div className="relative">
+          <div className="relative animate-slide-in-right">
             <div className="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm">
               <img 
                 src="/placeholder.svg" 
@@ -148,7 +149,7 @@ const About = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center border-none bg-background">
+              <Card key={index} className={`text-center border-none bg-background hover-glow transition-all duration-500 transform hover:scale-105 animate-fade-in-up stagger-${index + 1}`}>
                 <CardContent className="p-6">
                   <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <value.icon className="text-primary" size={32} />
@@ -174,7 +175,7 @@ const About = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, index) => (
-            <Card key={index} className="text-center">
+            <Card key={index} className={`text-center hover-glow transition-all duration-500 transform hover:scale-105 animate-bounce-in stagger-${index + 1}`}>
               <CardContent className="p-6">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
                   <img 
@@ -195,16 +196,17 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="bg-primary py-16">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold text-primary-foreground">Our Mission</h2>
-            <p className="text-primary-foreground/90 text-lg leading-relaxed">
+      <section className="gradient-primary py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1),transparent)] pointer-events-none"></div>
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="max-w-3xl mx-auto space-y-6 animate-fade-in-up">
+            <h2 className="text-3xl font-bold text-white floating">Our Mission</h2>
+            <p className="text-white/90 text-lg leading-relaxed animate-fade-in-up stagger-1">
               To democratize access to cutting-edge technology by providing carefully curated, 
               high-quality products with exceptional customer service. We believe everyone should 
               have the opportunity to experience the transformative power of technology.
             </p>
-            <Button variant="secondary" size="lg">
+            <Button variant="secondary" size="lg" className="shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105 animate-bounce-in stagger-2">
               Join Our Journey
             </Button>
           </div>

@@ -57,13 +57,14 @@ const Contact = () => {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 to-accent/20 py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="gradient-hero py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_60%,rgba(255,255,255,0.15),transparent)] pointer-events-none"></div>
+        <div className="relative container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-6">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground">
-              Get in <span className="text-primary">Touch</span>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white animate-fade-in-up">
+              Get in <span className="floating text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">Touch</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-white/90 leading-relaxed animate-fade-in-up stagger-1">
               Have questions? We'd love to hear from you. Send us a message and we'll 
               respond as soon as possible.
             </p>
@@ -75,7 +76,7 @@ const Contact = () => {
       <section className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {contactMethods.map((method, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+            <Card key={index} className={`text-center hover-glow transition-all duration-500 transform hover:scale-105 animate-bounce-in-scale stagger-${index + 1}`}>
               <CardContent className="p-6">
                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <method.icon className="text-primary" size={32} />
@@ -94,8 +95,8 @@ const Contact = () => {
       <section className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card>
+          <div className="lg:col-span-2 animate-slide-in-left">
+            <Card className="hover-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl">Send us a Message</CardTitle>
                 <p className="text-muted-foreground">
@@ -166,9 +167,9 @@ const Contact = () => {
           </div>
 
           {/* Sidebar Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 animate-slide-in-right">
             {/* Departments */}
-            <Card>
+            <Card className="hover-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle>Our Departments</CardTitle>
               </CardHeader>
@@ -188,7 +189,7 @@ const Contact = () => {
             </Card>
 
             {/* Business Hours */}
-            <Card>
+            <Card className="hover-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Clock size={20} />
@@ -215,13 +216,13 @@ const Contact = () => {
             </Card>
 
             {/* Quick Contact */}
-            <Card className="bg-primary text-primary-foreground">
+            <Card className="gradient-primary text-white hover-glow transition-all duration-300 pulse-glow">
               <CardContent className="p-6 text-center">
-                <h3 className="font-semibold mb-3">Need Immediate Help?</h3>
-                <p className="text-primary-foreground/90 text-sm mb-4">
+                <h3 className="font-semibold mb-3 animate-fade-in">Need Immediate Help?</h3>
+                <p className="text-white/90 text-sm mb-4 animate-fade-in stagger-1">
                   For urgent technical issues or order problems, call us directly.
                 </p>
-                <Button variant="secondary" size="lg" className="w-full">
+                <Button variant="secondary" size="lg" className="w-full shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105 animate-bounce-in stagger-2">
                   <Phone className="mr-2" size={20} />
                   Call Now: (555) 123-4567
                 </Button>
@@ -234,12 +235,12 @@ const Contact = () => {
       {/* FAQ Section */}
       <section className="bg-secondary py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold text-foreground">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground">
+          <div className="max-w-3xl mx-auto space-y-6 animate-fade-in-up">
+            <h2 className="text-3xl font-bold text-foreground floating">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground animate-fade-in-up stagger-1">
               Before reaching out, check if your question is answered in our comprehensive FAQ section.
             </p>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105 animate-bounce-in stagger-2">
               Visit FAQ Center
             </Button>
           </div>

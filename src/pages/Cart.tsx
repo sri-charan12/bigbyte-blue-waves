@@ -73,48 +73,76 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center space-y-6">
-          <div className="bg-muted rounded-full w-24 h-24 flex items-center justify-center mx-auto">
-            <ShoppingBag size={48} className="text-muted-foreground" />
+      <div className="min-h-screen">
+        {/* Empty Cart Hero */}
+        <section className="gradient-hero py-16">
+          <div className="container mx-auto px-4 text-center">
+            <div className="space-y-4 animate-fade-in-up">
+              <h1 className="text-4xl lg:text-5xl font-bold text-white floating">
+                Your Cart
+              </h1>
+            </div>
           </div>
-          <div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">Your cart is empty</h1>
-            <p className="text-muted-foreground">
-              Looks like you haven't added any items to your cart yet.
-            </p>
+        </section>
+
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center space-y-6 animate-fade-in-up">
+            <div className="bg-primary/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto animate-bounce-in-scale">
+              <ShoppingBag size={48} className="text-primary" />
+            </div>
+            <div className="animate-fade-in-up stagger-1">
+              <h2 className="text-3xl font-bold text-foreground mb-2">Your cart is empty</h2>
+              <p className="text-muted-foreground">
+                Looks like you haven't added any items to your cart yet.
+              </p>
+            </div>
+            <Button size="lg" className="shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105 animate-bounce-in stagger-2" asChild>
+              <Link to="/products">
+                Continue Shopping
+              </Link>
+            </Button>
           </div>
-          <Button size="lg" asChild>
-            <Link to="/products">
-              Continue Shopping
-            </Link>
-          </Button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="space-y-8">
-        {/* Header */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" asChild>
-            <Link to="/products">
-              <ArrowLeft size={20} />
-            </Link>
-          </Button>
-          <div>
-            <h1 className="text-3xl font-bold text-foreground">Shopping Cart</h1>
-            <p className="text-muted-foreground">{cartItems.length} items in your cart</p>
+    <div className="min-h-screen">
+      {/* Cart Hero */}
+      <section className="gradient-hero py-16">
+        <div className="container mx-auto px-4 text-center">
+          <div className="space-y-4 animate-fade-in-up">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white floating">
+              Shopping Cart
+            </h1>
+            <p className="text-xl text-white/90 animate-fade-in-up stagger-1">
+              {cartItems.length} items in your cart
+            </p>
           </div>
         </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-8">
+          {/* Header */}
+          <div className="flex items-center gap-4 animate-slide-in-left">
+            <Button variant="ghost" size="icon" className="hover-glow transition-all duration-300" asChild>
+              <Link to="/products">
+                <ArrowLeft size={20} />
+              </Link>
+            </Button>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">Review Your Items</h2>
+              <p className="text-muted-foreground">Manage quantities and proceed to checkout</p>
+            </div>
+          </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-4">
-            {cartItems.map((item) => (
-              <Card key={item.id}>
+          <div className="lg:col-span-2 space-y-4 animate-slide-in-left">
+            {cartItems.map((item, index) => (
+              <Card key={item.id} className={`hover-glow transition-all duration-500 transform hover:scale-105 animate-fade-in-up stagger-${index + 1}`}>
                 <CardContent className="p-6">
                   <div className="flex gap-4">
                     <div className="relative">
@@ -195,8 +223,8 @@ const Cart = () => {
           </div>
 
           {/* Order Summary */}
-          <div className="space-y-6">
-            <Card>
+          <div className="space-y-6 animate-slide-in-right">
+            <Card className="hover-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle>Order Summary</CardTitle>
               </CardHeader>
@@ -264,6 +292,7 @@ const Cart = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
         </div>
       </div>
     </div>

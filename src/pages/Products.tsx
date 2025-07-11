@@ -104,36 +104,54 @@ const Products = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div>
-            <h1 className="text-3xl font-bold text-foreground">All Products</h1>
-            <p className="text-muted-foreground">Discover our complete collection of tech products</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant={viewMode === "grid" ? "default" : "outline"}
-              size="icon"
-              onClick={() => setViewMode("grid")}
-            >
-              <Grid3X3 size={18} />
-            </Button>
-            <Button
-              variant={viewMode === "list" ? "default" : "outline"}
-              size="icon"
-              onClick={() => setViewMode("list")}
-            >
-              <List size={18} />
-            </Button>
+    <div className="min-h-screen">
+      {/* Hero Banner */}
+      <section className="gradient-hero py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] pointer-events-none"></div>
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="space-y-4 animate-fade-in-up">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white floating">
+              Explore Our Products
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up stagger-1">
+              Discover cutting-edge technology and premium electronics
+            </p>
           </div>
         </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 animate-slide-in-left">
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">All Products</h2>
+              <p className="text-muted-foreground">Discover our complete collection of tech products</p>
+            </div>
+            <div className="flex items-center gap-2 animate-slide-in-right">
+              <Button
+                variant={viewMode === "grid" ? "default" : "outline"}
+                size="icon"
+                onClick={() => setViewMode("grid")}
+                className="transition-all duration-300 hover:scale-110"
+              >
+                <Grid3X3 size={18} />
+              </Button>
+              <Button
+                variant={viewMode === "list" ? "default" : "outline"}
+                size="icon"
+                onClick={() => setViewMode("list")}
+                className="transition-all duration-300 hover:scale-110"
+              >
+                <List size={18} />
+              </Button>
+            </div>
+          </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}
-          <div className="lg:col-span-1 space-y-6">
-            <Card>
+          <div className="lg:col-span-1 space-y-6 animate-slide-in-left">
+            <Card className="hover-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Filter size={20} />
@@ -250,8 +268,8 @@ const Products = () => {
               ? "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" 
               : "space-y-4"
             }>
-              {products.map((product) => (
-                <Card key={product.id} className={`group hover:shadow-lg transition-shadow ${!product.inStock ? 'opacity-75' : ''}`}>
+              {products.map((product, index) => (
+                <Card key={product.id} className={`group hover:shadow-elegant transition-all duration-500 transform hover:scale-105 hover-glow animate-fade-in-up stagger-${(index % 3) + 1} ${!product.inStock ? 'opacity-75' : ''}`}>
                   {viewMode === "grid" ? (
                     <>
                       <CardHeader className="p-0 relative">
@@ -371,6 +389,7 @@ const Products = () => {
                 <Button variant="outline" size="sm">Next</Button>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -142,14 +142,20 @@ const Compare = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-8">
-      {/* Header */}
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold text-foreground">Product Comparison</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Compare features, specifications, and prices to make the best choice for your needs.
-        </p>
-      </div>
+    <div className="space-y-8">
+      {/* Hero Section */}
+      <section className="gradient-hero py-16">
+        <div className="container mx-auto px-4 text-center">
+          <div className="space-y-4 animate-fade-in-up">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white floating">Product Comparison</h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up stagger-1">
+              Compare features, specifications, and prices to make the best choice for your needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 space-y-8">
 
       {/* Search and Add Products */}
       <Card>
@@ -391,6 +397,7 @@ const Compare = () => {
           </CardContent>
         </Card>
       )}
+      </div>
     </div>
   );
 };
