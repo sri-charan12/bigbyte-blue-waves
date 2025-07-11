@@ -248,9 +248,18 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Badge className="absolute top-3 left-3 shadow-soft animate-bounce-in">{product.badge}</Badge>
                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <Button size="icon" variant="secondary" className="w-8 h-8 shadow-soft hover:shadow-elegant transition-all duration-300">
-                      <Heart size={16} />
-                    </Button>
+                  <Button 
+                    size="icon" 
+                    variant="secondary" 
+                    className="w-8 h-8 shadow-soft hover:shadow-elegant transition-all duration-300"
+                    onClick={() => {
+                      // Add to wishlist functionality
+                      console.log('Added to wishlist:', product.name);
+                      // You can add toast notification here
+                    }}
+                  >
+                    <Heart size={16} />
+                  </Button>
                   </div>
                 </div>
               </CardHeader>
@@ -273,7 +282,15 @@ const Home = () => {
                      <span className="text-xl font-bold text-primary">₹{product.price.toLocaleString('en-IN')}</span>
                      <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
                    </div>
-                  <Button className="w-full shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105" size="sm">
+                  <Button 
+                    className="w-full shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105" 
+                    size="sm"
+                    onClick={() => {
+                      // Add to cart functionality
+                      console.log('Added to cart:', product.name);
+                      // You can add toast notification here
+                    }}
+                  >
                     <ShoppingCart size={16} className="mr-2" />
                     Add to Cart
                   </Button>
@@ -361,61 +378,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center space-y-4 mb-12 animate-fade-in">
-          <h2 className="text-4xl font-bold text-foreground">What Our Customers Say</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it - here's what our customers have to say
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              name: "Arjun Sharma",
-              role: "Software Engineer",
-              content: "Amazing quality products and lightning-fast delivery. The gaming keyboard I bought exceeded my expectations!",
-              rating: 5,
-              avatar: "AS"
-            },
-            {
-              name: "Priya Patel",
-              role: "Designer",
-              content: "Best shopping experience ever! The customer service is outstanding and the products are top-notch.",
-              rating: 5,
-              avatar: "PP"
-            },
-            {
-              name: "Vikram Singh",
-              role: "Student",
-              content: "Great prices and authentic products. The headphones I purchased have incredible sound quality.",
-              rating: 5,
-              avatar: "VS"
-            }
-          ].map((testimonial, index) => (
-            <Card key={index} className={`hover:shadow-elegant transition-all duration-300 transform hover:scale-105 animate-slide-up stagger-${index + 1}`}>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <Quote className="text-primary mb-3" size={24} />
-                <p className="text-muted-foreground mb-4 italic">"{testimonial.content}"</p>
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary font-semibold text-sm">{testimonial.avatar}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
 
       {/* Why Choose Us Section */}
       <section className="container mx-auto px-4 py-16">
