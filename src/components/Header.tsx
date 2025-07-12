@@ -108,6 +108,9 @@ const Header = () => {
             <Link to="/compare" className="text-foreground hover:text-primary transition-colors">
               Compare
             </Link>
+            <Link to="/status" className="text-foreground hover:text-primary transition-colors">
+              Status
+            </Link>
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About
             </Link>
@@ -218,6 +221,9 @@ const Header = () => {
                     </Link>
                     <Link to="/compare" className="text-foreground hover:text-primary transition-colors py-2">
                       Compare
+                    </Link>
+                    <Link to="/status" className="text-foreground hover:text-primary transition-colors py-2">
+                      Status
                     </Link>
                     <Link to="/about" className="text-foreground hover:text-primary transition-colors py-2">
                       About

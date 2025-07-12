@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Deals from "./pages/Deals";
 import Compare from "./pages/Compare";
+import SystemStatus from "./pages/SystemStatus";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/categories" element={<Layout><Products /></Layout>} />
             <Route path="/deals" element={<Layout><Deals /></Layout>} />
             <Route path="/compare" element={<Layout><Compare /></Layout>} />
+            <Route path="/status" element={<Layout><SystemStatus /></Layout>} />
             <Route path="/profile" element={<Layout><ProtectedRoute><Profile /></ProtectedRoute></Layout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />
