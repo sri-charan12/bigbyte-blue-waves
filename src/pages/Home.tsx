@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { ProductActions } from "@/components/ProductActions";
 import { 
   Star, 
   ArrowRight, 
@@ -282,18 +283,11 @@ const Home = () => {
                      <span className="text-xl font-bold text-primary">₹{product.price.toLocaleString('en-IN')}</span>
                      <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
                    </div>
-                  <Button 
-                    className="w-full shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:scale-105" 
-                    size="sm"
-                    onClick={() => {
-                      // Add to cart functionality
-                      console.log('Added to cart:', product.name);
-                      // You can add toast notification here
-                    }}
-                  >
-                    <ShoppingCart size={16} className="mr-2" />
-                    Add to Cart
-                  </Button>
+                   <ProductActions 
+                     product={product}
+                     variant="default"
+                     inStock={true}
+                   />
                 </div>
               </CardContent>
             </Card>

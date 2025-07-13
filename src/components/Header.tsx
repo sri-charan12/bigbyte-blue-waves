@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -18,9 +20,9 @@ import {
 } from "lucide-react";
 
 const Header = () => {
-  const [cartCount, setCartCount] = useState(0);
+  const { cartCount } = useCart();
+  const { wishlistCount } = useWishlist();
   const [searchQuery, setSearchQuery] = useState("");
-  const [wishlistCount] = useState(0);
   const navigate = useNavigate();
   const { toast } = useToast();
   const { user, signOut } = useAuth();
@@ -134,19 +136,20 @@ const Header = () => {
 
           {/* User actions */}
           <div className="flex items-center space-x-4">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="hidden md:flex relative"
-              onClick={handleAddToWishlist}
-            >
-              <Heart size={20} />
-              {wishlistCount > 0 && (
-                <Badge className="absolute -top-2 -right-2 h-4 w-4 rounded-full p-0 text-xs">
-                  {wishlistCount}
-                </Badge>
-              )}
-            </Button>
+            <Link to="/wishlist">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="hidden md:flex relative"
+              >
+                <Heart size={20} />
+                {wishlistCount > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-4 w-4 rounded-full p-0 text-xs">
+                    {wishlistCount}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
             
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="relative">
