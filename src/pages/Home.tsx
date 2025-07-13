@@ -139,8 +139,8 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 slide-in-up">
               <div className="space-y-6">
-                <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
-                  Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 floating">BigByte</span>
+                <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight animate-bounce-in-scale">
+                  Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 floating pulse-glow animate-shimmer">BigByte</span>
                 </h1>
                 <p className="text-xl text-white/90 leading-relaxed max-w-xl">
                   Discover the latest in technology and electronics. From cutting-edge gadgets 
@@ -148,7 +148,7 @@ const Home = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="shadow-glow hover:shadow-elegant transition-all duration-300 transform hover:scale-105" asChild>
+                <Button size="lg" className="shadow-glow hover:shadow-elegant transition-all duration-300 transform hover:scale-105 pulse-glow animate-bounce-in" asChild>
                   <Link to="/products">
                     Shop Now <ArrowRight className="ml-2" size={20} />
                   </Link>
@@ -169,7 +169,7 @@ const Home = () => {
               </div>
             </div>
             <div className="relative slide-in-up stagger-2">
-              <div className="absolute inset-0 bg-white/10 rounded-2xl backdrop-blur-sm pulse-glow"></div>
+              <div className="absolute inset-0 bg-white/10 rounded-2xl backdrop-blur-sm pulse-glow animate-rotate-in"></div>
               <div className="relative bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/20">
                 <img 
                   src={heroTechImage} 
@@ -192,8 +192,8 @@ const Home = () => {
             { icon: Award, title: "Quality Guarantee", desc: "Premium products only" }
           ].map((feature, index) => (
             <div key={index} className={`text-center space-y-4 animate-fade-in stagger-${index + 1}`}>
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto transition-all duration-300 hover:bg-primary/20 hover:scale-110">
-                <feature.icon className="text-primary" size={32} />
+                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto transition-all duration-300 hover:bg-primary/20 hover:scale-110 pulse-glow floating">
+                <feature.icon className="text-primary animate-bounce-in" size={32} />
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">{feature.title}</h3>
@@ -309,9 +309,9 @@ const Home = () => {
               { icon: Globe, number: "25+", label: "Cities" },
               { icon: TrendingUp, number: "99%", label: "Satisfaction Rate" }
             ].map((stat, index) => (
-              <div key={index} className={`space-y-3 animate-bounce-in stagger-${index + 1}`}>
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                  <stat.icon className="text-primary" size={32} />
+              <div key={index} className={`space-y-3 animate-bounce-in-scale stagger-${index + 1}`}>
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto floating pulse-glow">
+                  <stat.icon className="text-primary animate-rotate-in" size={32} />
                 </div>
                 <h3 className="text-3xl font-bold text-primary">{stat.number}</h3>
                 <p className="text-muted-foreground">{stat.label}</p>
@@ -422,8 +422,8 @@ const Home = () => {
               }
             ].map((feature, index) => (
               <div key={index} className={`text-center space-y-4 animate-fade-in stagger-${(index % 3) + 1}`}>
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto transition-all duration-300 hover:bg-primary/20 hover:scale-110 hover:shadow-soft">
-                  <feature.icon className="text-primary" size={32} />
+                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto transition-all duration-300 hover:bg-primary/20 hover:scale-110 hover:shadow-soft floating">
+                  <feature.icon className="text-primary animate-bounce-in-scale" size={32} />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>

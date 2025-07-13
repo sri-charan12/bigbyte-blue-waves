@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">Free Shipping</h3>
-                <p className="text-muted-foreground text-sm">On orders over $50</p>
+                <p className="text-muted-foreground text-sm">On orders over ₹4000</p>
               </div>
             </div>
             

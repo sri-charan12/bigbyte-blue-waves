@@ -21,8 +21,8 @@ const Compare = () => {
     {
       id: 1,
       name: "Wireless Bluetooth Headphones Pro",
-      price: 199.99,
-      originalPrice: 249.99,
+      price: 16499,
+      originalPrice: 20799,
       image: "/placeholder.svg",
       rating: 4.8,
       reviews: 324,
@@ -41,8 +41,8 @@ const Compare = () => {
     {
       id: 2,
       name: "Premium Audio Headphones Elite",
-      price: 279.99,
-      originalPrice: 349.99,
+      price: 23199,
+      originalPrice: 29099,
       image: "/placeholder.svg",
       rating: 4.9,
       reviews: 567,
@@ -61,8 +61,8 @@ const Compare = () => {
     {
       id: 3,
       name: "Studio Quality Headphones",
-      price: 149.99,
-      originalPrice: 199.99,
+      price: 12499,
+      originalPrice: 16699,
       image: "/placeholder.svg",
       rating: 4.7,
       reviews: 234,
@@ -86,7 +86,7 @@ const Compare = () => {
     {
       id: 4,
       name: "Gaming Wireless Headset",
-      price: 129.99,
+      price: 10799,
       image: "/placeholder.svg",
       rating: 4.6,
       brand: "GameTech"
@@ -94,7 +94,7 @@ const Compare = () => {
     {
       id: 5,
       name: "Professional Monitor Headphones",
-      price: 189.99,
+      price: 15799,
       image: "/placeholder.svg",
       rating: 4.8,
       brand: "ProAudio"
@@ -102,7 +102,7 @@ const Compare = () => {
     {
       id: 6,
       name: "Compact Travel Headphones",
-      price: 89.99,
+      price: 7499,
       image: "/placeholder.svg",
       rating: 4.4,
       brand: "TravelTech"
@@ -118,7 +118,7 @@ const Compare = () => {
       // Add full product details for comparison
       const fullProduct = {
         ...product,
-        originalPrice: product.price + 50,
+        originalPrice: product.price + 4000,
         reviews: Math.floor(Math.random() * 500) + 100,
         specs: {
           "Battery Life": "20-35 hours",
@@ -147,7 +147,7 @@ const Compare = () => {
       <section className="gradient-hero py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="space-y-4 animate-fade-in-up">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white floating">Product Comparison</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white floating pulse-glow animate-bounce-in-scale">Product Comparison</h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up stagger-1">
               Compare features, specifications, and prices to make the best choice for your needs.
             </p>
@@ -200,7 +200,7 @@ const Compare = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-sm">${product.price}</p>
+                      <p className="font-semibold text-sm">₹{product.price.toLocaleString('en-IN')}</p>
                       <Button 
                         size="sm" 
                         variant="outline" 
@@ -278,8 +278,8 @@ const Compare = () => {
                       
                       <div className="space-y-2 mb-4">
                         <div className="flex items-center justify-center space-x-2">
-                          <span className="text-lg font-bold text-primary">${product.price}</span>
-                          <span className="text-xs text-muted-foreground line-through">${product.originalPrice}</span>
+                          <span className="text-lg font-bold text-primary">₹{product.price.toLocaleString('en-IN')}</span>
+                          <span className="text-xs text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
                         </div>
                         {!product.inStock && (
                           <Badge variant="destructive" className="text-xs">Out of Stock</Badge>
@@ -365,7 +365,7 @@ const Compare = () => {
                   <CardContent className="p-4 text-center">
                     <Truck className="text-green-500 mx-auto mb-2" size={24} />
                     <h3 className="font-semibold text-sm mb-1">Free Shipping</h3>
-                    <p className="text-xs text-muted-foreground">On orders over $50</p>
+                    <p className="text-xs text-muted-foreground">On orders over ₹4000</p>
                   </CardContent>
                 </Card>
                 

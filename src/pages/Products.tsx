@@ -23,8 +23,8 @@ const Products = () => {
     {
       id: 1,
       name: "Wireless Bluetooth Headphones",
-      price: 199.99,
-      originalPrice: 249.99,
+      price: 16499,
+      originalPrice: 20799,
       image: "/placeholder.svg",
       rating: 4.8,
       reviews: 324,
@@ -35,8 +35,8 @@ const Products = () => {
     {
       id: 2,
       name: "4K Ultra HD Webcam",
-      price: 129.99,
-      originalPrice: 169.99,
+      price: 10799,
+      originalPrice: 14199,
       image: "/placeholder.svg",
       rating: 4.6,
       reviews: 189,
@@ -47,8 +47,8 @@ const Products = () => {
     {
       id: 3,
       name: "Gaming Mechanical Keyboard",
-      price: 89.99,
-      originalPrice: 119.99,
+      price: 7499,
+      originalPrice: 9999,
       image: "/placeholder.svg",
       rating: 4.9,
       reviews: 512,
@@ -59,8 +59,8 @@ const Products = () => {
     {
       id: 4,
       name: "Wireless Charging Pad",
-      price: 39.99,
-      originalPrice: 59.99,
+      price: 3299,
+      originalPrice: 4999,
       image: "/placeholder.svg",
       rating: 4.5,
       reviews: 267,
@@ -71,8 +71,8 @@ const Products = () => {
     {
       id: 5,
       name: "Premium Laptop Stand",
-      price: 79.99,
-      originalPrice: 99.99,
+      price: 6699,
+      originalPrice: 8299,
       image: "/placeholder.svg",
       rating: 4.7,
       reviews: 145,
@@ -83,8 +83,8 @@ const Products = () => {
     {
       id: 6,
       name: "Smartphone 128GB",
-      price: 699.99,
-      originalPrice: 799.99,
+      price: 58299,
+      originalPrice: 66699,
       image: "/placeholder.svg",
       rating: 4.4,
       reviews: 892,
@@ -96,11 +96,11 @@ const Products = () => {
 
   const categories = ["All", "Audio", "Cameras", "Accessories", "Smartphones", "Laptops"];
   const priceRanges = [
-    "Under $50",
-    "$50 - $100",
-    "$100 - $200",
-    "$200 - $500",
-    "$500+"
+    "Under ₹4000",
+    "₹4000 - ₹8000",
+    "₹8000 - ₹16000",
+    "₹16000 - ₹40000",
+    "₹40000+"
   ];
 
   return (
@@ -110,7 +110,7 @@ const Products = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] pointer-events-none"></div>
         <div className="relative container mx-auto px-4 text-center">
           <div className="space-y-4 animate-fade-in-up">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white floating">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white floating pulse-glow animate-bounce-in-scale">
               Explore Our Products
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up stagger-1">
@@ -309,10 +309,10 @@ const Products = () => {
                             <span className="text-sm text-muted-foreground">({product.reviews})</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <span className="text-xl font-bold text-primary">${product.price}</span>
-                            {product.originalPrice > product.price && (
-                              <span className="text-sm text-muted-foreground line-through">${product.originalPrice}</span>
-                            )}
+            <span className="text-xl font-bold text-primary">₹{product.price.toLocaleString('en-IN')}</span>
+            {product.originalPrice > product.price && (
+              <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+            )}
                           </div>
                           <Button className="w-full" size="sm" disabled={!product.inStock}>
                             <ShoppingCart size={16} className="mr-2" />
@@ -361,10 +361,10 @@ const Products = () => {
                           </div>
                           <div className="flex justify-between items-center">
                             <div className="flex items-center space-x-2">
-                              <span className="text-xl font-bold text-primary">${product.price}</span>
-                              {product.originalPrice > product.price && (
-                                <span className="text-sm text-muted-foreground line-through">${product.originalPrice}</span>
-                              )}
+              <span className="text-xl font-bold text-primary">₹{product.price.toLocaleString('en-IN')}</span>
+              {product.originalPrice > product.price && (
+                <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+              )}
                             </div>
                             <Button size="sm" disabled={!product.inStock}>
                               <ShoppingCart size={16} className="mr-2" />

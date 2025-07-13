@@ -76,7 +76,7 @@ const Header = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <span>Free shipping on orders over $50!</span>
+            <span>Free shipping on orders over ₹4000!</span>
           </div>
         </div>
       </div>

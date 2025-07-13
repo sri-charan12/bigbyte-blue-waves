@@ -18,8 +18,8 @@ const Deals = () => {
     {
       id: 1,
       name: "Premium Wireless Earbuds",
-      price: 89.99,
-      originalPrice: 179.99,
+      price: 7499,
+      originalPrice: 14999,
       image: "/placeholder.svg",
       rating: 4.8,
       reviews: 456,
@@ -32,8 +32,8 @@ const Deals = () => {
     {
       id: 2,
       name: "4K Gaming Monitor 32\"",
-      price: 299.99,
-      originalPrice: 499.99,
+      price: 24999,
+      originalPrice: 41699,
       image: "/placeholder.svg",
       rating: 4.9,
       reviews: 234,
@@ -46,8 +46,8 @@ const Deals = () => {
     {
       id: 3,
       name: "Mechanical RGB Keyboard",
-      price: 129.99,
-      originalPrice: 199.99,
+      price: 10799,
+      originalPrice: 16699,
       image: "/placeholder.svg",
       rating: 4.7,
       reviews: 678,
@@ -60,8 +60,8 @@ const Deals = () => {
     {
       id: 4,
       name: "Wireless Gaming Mouse",
-      price: 59.99,
-      originalPrice: 99.99,
+      price: 4999,
+      originalPrice: 8399,
       image: "/placeholder.svg",
       rating: 4.6,
       reviews: 345,
@@ -77,8 +77,8 @@ const Deals = () => {
     {
       id: 5,
       name: "Smart Watch Pro Max",
-      price: 249.99,
-      originalPrice: 399.99,
+      price: 20799,
+      originalPrice: 33299,
       image: "/placeholder.svg",
       rating: 4.8,
       reviews: 892,
@@ -88,8 +88,8 @@ const Deals = () => {
     {
       id: 6,
       name: "Portable SSD 2TB",
-      price: 189.99,
-      originalPrice: 299.99,
+      price: 15799,
+      originalPrice: 24999,
       image: "/placeholder.svg",
       rating: 4.9,
       reviews: 567,
@@ -99,8 +99,8 @@ const Deals = () => {
     {
       id: 7,
       name: "Wireless Charging Stand",
-      price: 39.99,
-      originalPrice: 69.99,
+      price: 3299,
+      originalPrice: 5799,
       image: "/placeholder.svg",
       rating: 4.5,
       reviews: 234,
@@ -110,8 +110,8 @@ const Deals = () => {
     {
       id: 8,
       name: "Bluetooth Speaker Pro",
-      price: 79.99,
-      originalPrice: 129.99,
+      price: 6699,
+      originalPrice: 10799,
       image: "/placeholder.svg",
       rating: 4.7,
       reviews: 445,
@@ -135,9 +135,9 @@ const Deals = () => {
         <div className="relative container mx-auto px-4 text-center">
           <div className="space-y-4 animate-fade-in-up">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Zap className="text-white floating" size={32} />
-              <h1 className="text-4xl lg:text-5xl font-bold text-white">Flash Deals</h1>
-              <Zap className="text-white floating" size={32} />
+              <Zap className="text-white floating pulse-glow" size={32} />
+              <h1 className="text-4xl lg:text-5xl font-bold text-white animate-bounce-in-scale">Flash Deals</h1>
+              <Zap className="text-white floating pulse-glow" size={32} />
             </div>
             <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up stagger-1">
               Don't miss out on these limited-time offers! Save up to 60% on your favorite tech products.
@@ -229,8 +229,8 @@ const Deals = () => {
                 
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <span className="text-xl font-bold text-primary">${deal.price}</span>
-                    <span className="text-sm text-muted-foreground line-through">${deal.originalPrice}</span>
+                    <span className="text-xl font-bold text-primary">₹{deal.price.toLocaleString('en-IN')}</span>
+                    <span className="text-sm text-muted-foreground line-through">₹{deal.originalPrice.toLocaleString('en-IN')}</span>
                   </div>
                   
                   <div className="space-y-1">
@@ -306,8 +306,8 @@ const Deals = () => {
                 </div>
                 
                 <div className="flex items-center space-x-2">
-                  <span className="text-xl font-bold text-primary">${deal.price}</span>
-                  <span className="text-sm text-muted-foreground line-through">${deal.originalPrice}</span>
+                  <span className="text-xl font-bold text-primary">₹{deal.price.toLocaleString('en-IN')}</span>
+                  <span className="text-sm text-muted-foreground line-through">₹{deal.originalPrice.toLocaleString('en-IN')}</span>
                 </div>
                 
                 <Button className="w-full" size="sm">
