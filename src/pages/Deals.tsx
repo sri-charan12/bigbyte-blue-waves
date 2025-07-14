@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { ProductActions } from "@/components/ProductActions";
 import { 
   Star, 
   ShoppingCart, 
@@ -13,14 +14,24 @@ import {
   TrendingUp
 } from "lucide-react";
 
+// Import images
+import headphonesWirelessImage from "@/assets/headphones-wireless.jpg";
+import webcam4kImage from "@/assets/webcam-4k.jpg";
+import keyboardGamingImage from "@/assets/keyboard-gaming.jpg";
+import mouseGamingImage from "@/assets/mouse-gaming.jpg";
+import smartwatchProImage from "@/assets/smartwatch-pro.jpg";
+import ssdPortableImage from "@/assets/ssd-portable.jpg";
+import chargingPadImage from "@/assets/charging-pad.jpg";
+import earbudsNoiseCancellingImage from "@/assets/earbuds-noise-cancelling.jpg";
+
 const Deals = () => {
   const flashDeals = [
     {
       id: 1,
-      name: "Premium Wireless Earbuds",
+      name: "Noise Cancelling Earbuds",
       price: 7499,
       originalPrice: 14999,
-      image: "/placeholder.svg",
+      image: earbudsNoiseCancellingImage,
       rating: 4.8,
       reviews: 456,
       discount: 50,
@@ -31,41 +42,41 @@ const Deals = () => {
     },
     {
       id: 2,
-      name: "4K Gaming Monitor 32\"",
-      price: 24999,
-      originalPrice: 41699,
-      image: "/placeholder.svg",
+      name: "4K Ultra HD Webcam",
+      price: 10799,
+      originalPrice: 16699,
+      image: webcam4kImage,
       rating: 4.9,
       reviews: 234,
-      discount: 40,
+      discount: 35,
       timeLeft: "01:23:15",
       sold: 45,
       total: 75,
-      category: "Monitors"
+      category: "Cameras"
     },
     {
       id: 3,
-      name: "Mechanical RGB Keyboard",
-      price: 10799,
-      originalPrice: 16699,
-      image: "/placeholder.svg",
+      name: "Gaming Mechanical Keyboard",
+      price: 6799,
+      originalPrice: 9999,
+      image: keyboardGamingImage,
       rating: 4.7,
       reviews: 678,
-      discount: 35,
+      discount: 32,
       timeLeft: "03:15:48",
       sold: 92,
       total: 120,
-      category: "Accessories"
+      category: "Gaming"
     },
     {
       id: 4,
       name: "Wireless Gaming Mouse",
       price: 4999,
-      originalPrice: 8399,
-      image: "/placeholder.svg",
+      originalPrice: 7499,
+      image: mouseGamingImage,
       rating: 4.6,
       reviews: 345,
-      discount: 40,
+      discount: 33,
       timeLeft: "00:58:22",
       sold: 156,
       total: 200,
@@ -76,10 +87,10 @@ const Deals = () => {
   const weeklyDeals = [
     {
       id: 5,
-      name: "Smart Watch Pro Max",
+      name: "Smart Watch Pro",
       price: 20799,
       originalPrice: 33299,
-      image: "/placeholder.svg",
+      image: smartwatchProImage,
       rating: 4.8,
       reviews: 892,
       discount: 37,
@@ -87,35 +98,35 @@ const Deals = () => {
     },
     {
       id: 6,
-      name: "Portable SSD 2TB",
-      price: 15799,
-      originalPrice: 24999,
-      image: "/placeholder.svg",
+      name: "Portable SSD 1TB",
+      price: 7499,
+      originalPrice: 10799,
+      image: ssdPortableImage,
       rating: 4.9,
       reviews: 567,
-      discount: 37,
+      discount: 31,
       category: "Storage"
     },
     {
       id: 7,
-      name: "Wireless Charging Stand",
+      name: "Wireless Charging Pad",
       price: 3299,
-      originalPrice: 5799,
-      image: "/placeholder.svg",
+      originalPrice: 4999,
+      image: chargingPadImage,
       rating: 4.5,
       reviews: 234,
-      discount: 43,
+      discount: 34,
       category: "Accessories"
     },
     {
       id: 8,
-      name: "Bluetooth Speaker Pro",
-      price: 6699,
-      originalPrice: 10799,
-      image: "/placeholder.svg",
+      name: "Wireless Bluetooth Headphones",
+      price: 16499,
+      originalPrice: 20799,
+      image: headphonesWirelessImage,
       rating: 4.7,
       reviews: 445,
-      discount: 38,
+      discount: 21,
       category: "Audio"
     }
   ];
@@ -242,10 +253,12 @@ const Deals = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-red-500 hover:bg-red-600" size="sm">
-                  <ShoppingCart size={16} className="mr-2" />
-                  Grab Deal Now!
-                </Button>
+                <ProductActions 
+                  product={deal}
+                  variant="compact"
+                  inStock={true}
+                  className="w-full"
+                />
               </CardContent>
             </Card>
           ))}
@@ -310,10 +323,12 @@ const Deals = () => {
                   <span className="text-sm text-muted-foreground line-through">₹{deal.originalPrice.toLocaleString('en-IN')}</span>
                 </div>
                 
-                <Button className="w-full" size="sm">
-                  <ShoppingCart size={16} className="mr-2" />
-                  Add to Cart
-                </Button>
+                <ProductActions 
+                  product={deal}
+                  variant="compact"
+                  inStock={true}
+                  className="w-full"
+                />
               </CardContent>
             </Card>
           ))}

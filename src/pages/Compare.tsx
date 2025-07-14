@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { ProductActions } from "@/components/ProductActions";
 import { 
   Star, 
   Search, 
@@ -16,6 +17,11 @@ import {
   Truck
 } from "lucide-react";
 
+// Import images
+import headphonesWirelessImage from "@/assets/headphones-wireless.jpg";
+import webcam4kImage from "@/assets/webcam-4k.jpg";
+import keyboardGamingImage from "@/assets/keyboard-gaming.jpg";
+
 const Compare = () => {
   const [compareList, setCompareList] = useState([
     {
@@ -23,7 +29,7 @@ const Compare = () => {
       name: "Wireless Bluetooth Headphones Pro",
       price: 16499,
       originalPrice: 20799,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       rating: 4.8,
       reviews: 324,
       brand: "TechBrand",
@@ -43,7 +49,7 @@ const Compare = () => {
       name: "Premium Audio Headphones Elite",
       price: 23199,
       originalPrice: 29099,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       rating: 4.9,
       reviews: 567,
       brand: "AudioMax",
@@ -63,7 +69,7 @@ const Compare = () => {
       name: "Studio Quality Headphones",
       price: 12499,
       originalPrice: 16699,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       rating: 4.7,
       reviews: 234,
       brand: "StudioSound",
@@ -87,7 +93,7 @@ const Compare = () => {
       id: 4,
       name: "Gaming Wireless Headset",
       price: 10799,
-      image: "/placeholder.svg",
+      image: keyboardGamingImage,
       rating: 4.6,
       brand: "GameTech"
     },
@@ -95,7 +101,7 @@ const Compare = () => {
       id: 5,
       name: "Professional Monitor Headphones",
       price: 15799,
-      image: "/placeholder.svg",
+      image: webcam4kImage,
       rating: 4.8,
       brand: "ProAudio"
     },
@@ -103,7 +109,7 @@ const Compare = () => {
       id: 6,
       name: "Compact Travel Headphones",
       price: 7499,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       rating: 4.4,
       brand: "TravelTech"
     }
@@ -286,16 +292,12 @@ const Compare = () => {
                         )}
                       </div>
                       
-                      <div className="space-y-2">
-                        <Button className="w-full text-xs h-8" disabled={!product.inStock}>
-                          <ShoppingCart size={12} className="mr-1" />
-                          {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                        </Button>
-                        <Button variant="outline" className="w-full text-xs h-8">
-                          <Heart size={12} className="mr-1" />
-                          Wishlist
-                        </Button>
-                      </div>
+                      <ProductActions 
+                        product={product}
+                        variant="compact"
+                        inStock={product.inStock}
+                        className="w-full text-xs"
+                      />
                     </CardContent>
                   </Card>
                 ))}

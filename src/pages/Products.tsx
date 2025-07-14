@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ProductActions } from "@/components/ProductActions";
 import { 
   Star, 
   Search, 
@@ -16,6 +17,14 @@ import {
   List
 } from "lucide-react";
 
+// Import images
+import headphonesWirelessImage from "@/assets/headphones-wireless.jpg";
+import webcam4kImage from "@/assets/webcam-4k.jpg";
+import keyboardGamingImage from "@/assets/keyboard-gaming.jpg";
+import chargingPadImage from "@/assets/charging-pad.jpg";
+import smartwatchProImage from "@/assets/smartwatch-pro.jpg";
+import mouseGamingImage from "@/assets/mouse-gaming.jpg";
+
 const Products = () => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   
@@ -25,7 +34,7 @@ const Products = () => {
       name: "Wireless Bluetooth Headphones",
       price: 16499,
       originalPrice: 20799,
-      image: "/placeholder.svg",
+      image: headphonesWirelessImage,
       rating: 4.8,
       reviews: 324,
       badge: "Best Seller",
@@ -37,7 +46,7 @@ const Products = () => {
       name: "4K Ultra HD Webcam",
       price: 10799,
       originalPrice: 14199,
-      image: "/placeholder.svg",
+      image: webcam4kImage,
       rating: 4.6,
       reviews: 189,
       badge: "New",
@@ -49,7 +58,7 @@ const Products = () => {
       name: "Gaming Mechanical Keyboard",
       price: 7499,
       originalPrice: 9999,
-      image: "/placeholder.svg",
+      image: keyboardGamingImage,
       rating: 4.9,
       reviews: 512,
       badge: "Hot Deal",
@@ -61,7 +70,7 @@ const Products = () => {
       name: "Wireless Charging Pad",
       price: 3299,
       originalPrice: 4999,
-      image: "/placeholder.svg",
+      image: chargingPadImage,
       rating: 4.5,
       reviews: 267,
       badge: "Sale",
@@ -70,26 +79,26 @@ const Products = () => {
     },
     {
       id: 5,
-      name: "Premium Laptop Stand",
-      price: 6699,
-      originalPrice: 8299,
-      image: "/placeholder.svg",
+      name: "Smart Watch Pro",
+      price: 24999,
+      originalPrice: 33299,
+      image: smartwatchProImage,
       rating: 4.7,
-      reviews: 145,
-      badge: "",
-      category: "Accessories",
+      reviews: 891,
+      badge: "Premium",
+      category: "Wearables",
       inStock: true
     },
     {
       id: 6,
-      name: "Smartphone 128GB",
-      price: 58299,
-      originalPrice: 66699,
-      image: "/placeholder.svg",
-      rating: 4.4,
-      reviews: 892,
-      badge: "Popular",
-      category: "Smartphones",
+      name: "Wireless Gaming Mouse",
+      price: 5799,
+      originalPrice: 7499,
+      image: mouseGamingImage,
+      rating: 4.6,
+      reviews: 789,
+      badge: "Gaming",
+      category: "Gaming",
       inStock: true
     }
   ];
@@ -314,10 +323,11 @@ const Products = () => {
               <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
             )}
                           </div>
-                          <Button className="w-full" size="sm" disabled={!product.inStock}>
-                            <ShoppingCart size={16} className="mr-2" />
-                            {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                          </Button>
+                          <ProductActions 
+                            product={product}
+                            variant="compact"
+                            inStock={product.inStock}
+                          />
                         </div>
                       </CardContent>
                     </>
@@ -366,10 +376,11 @@ const Products = () => {
                 <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
               )}
                             </div>
-                            <Button size="sm" disabled={!product.inStock}>
-                              <ShoppingCart size={16} className="mr-2" />
-                              {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                            </Button>
+                            <ProductActions 
+                              product={product}
+                              variant="compact"
+                              inStock={product.inStock}
+                            />
                           </div>
                         </div>
                       </div>

@@ -164,6 +164,16 @@ const Header = () => {
 
             {user ? (
               <div className="hidden md:flex items-center space-x-2">
+                {user.email?.includes('admin') && (
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => navigate("/admin")}
+                    title="Admin Panel"
+                  >
+                    Admin
+                  </Button>
+                )}
                 <Button 
                   variant="ghost" 
                   size="icon"
@@ -234,6 +244,11 @@ const Header = () => {
                     <Link to="/contact" className="text-foreground hover:text-primary transition-colors py-2">
                       Contact
                     </Link>
+                    {user?.email?.includes('admin') && (
+                      <Link to="/admin" className="text-foreground hover:text-primary transition-colors py-2">
+                        Admin Panel
+                      </Link>
+                    )}
                   </nav>
 
                   <div className="flex space-x-4 pt-4 border-t">
