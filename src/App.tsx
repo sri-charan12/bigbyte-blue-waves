@@ -21,6 +21,8 @@ import SystemStatus from "./pages/SystemStatus";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
+import OrderHistory from "./pages/OrderHistory";
+import OrderTracking from "./pages/OrderTracking";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +49,8 @@ const App = () => (
                 <Route path="/status" element={<Layout><SystemStatus /></Layout>} />
                 <Route path="/admin" element={<Layout><ProtectedRoute><Admin /></ProtectedRoute></Layout>} />
                 <Route path="/profile" element={<Layout><ProtectedRoute><Profile /></ProtectedRoute></Layout>} />
+                <Route path="/orders" element={<Layout><ProtectedRoute><OrderHistory /></ProtectedRoute></Layout>} />
+                <Route path="/order-tracking/:orderId" element={<Layout><OrderTracking /></Layout>} />
                 <Route path="*" element={<Layout><NotFound /></Layout>} />
               </Routes>
             </WishlistProvider>

@@ -72,6 +72,7 @@ export const ProductActions: React.FC<ProductActionsProps> = ({
     
     setBuyNowLoading(true);
     try {
+      // Step 1: Create order
       const orderData = {
         product_id: String(product.id),
         product_name: product.name,
@@ -86,16 +87,42 @@ export const ProductActions: React.FC<ProductActionsProps> = ({
         }
       };
 
-      const { data, error } = await supabase.functions.invoke('create-order', {
+      const { data: orderResponse, error: orderError } = await supabase.functions.invoke('create-order', {
         body: orderData,
       });
 
-      if (error) throw error;
+      if (orderError) throw orderError;
 
-      toast({
-        title: "Order Placed Successfully!",
-        description: `Your order for ${product.name} has been placed. Order ID: ${data.order_id}`,
+      // Step 2: Process payment
+      const paymentData = {
+        order_id: orderResponse.order_id,
+        amount: product.price * customerInfo.quantity,
+        customer_email: customerInfo.email,
+        customer_name: customerInfo.name,
+        product_name: product.name
+      };
+
+      const { data: paymentResponse, error: paymentError } = await supabase.functions.invoke('create-payment', {
+        body: paymentData,
       });
+
+      if (paymentError) throw paymentError;
+
+      if (paymentResponse.success) {
+        toast({
+          title: "Payment Successful!",
+          description: `Your payment has been processed. Order ID: ${orderResponse.order_id}`,
+        });
+
+        // Redirect to order tracking
+        window.location.href = paymentResponse.redirect_url;
+      } else {
+        toast({
+          title: "Payment Failed",
+          description: paymentResponse.error || "Payment failed. Please try again.",
+          variant: "destructive",
+        });
+      }
 
       setBuyNowDialogOpen(false);
       setCustomerInfo({
