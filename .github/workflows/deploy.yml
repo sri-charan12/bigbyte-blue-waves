@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ main, master ]
 
-
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: bigbyte-frontend
