@@ -9,7 +9,7 @@ ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
 echo "🏗️  Setting up BigByte infrastructure for $ENVIRONMENT environment in $AWS_REGION..."
 
-# Create CloudFormation stack
+# CloudFormation stack
 echo "📋 Creating CloudFormation stack..."
 aws cloudformation deploy \
   --template-file .aws/cloudformation/infrastructure.yml \
