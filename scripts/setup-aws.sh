@@ -1,4 +1,3 @@
-#!/bin/bash
 
 # BigByte AWS Infrastructure Setup Script
 set -e
