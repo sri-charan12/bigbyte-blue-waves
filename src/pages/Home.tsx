@@ -294,25 +294,6 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Statistics Section */}
-        <div className="mt-20 py-16 bg-gradient-to-r from-primary/5 to-accent/10 rounded-3xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { icon: Users, number: "50K+", label: "Happy Customers" },
-              { icon: Award, number: "1000+", label: "Products" },
-              { icon: Globe, number: "25+", label: "Cities" },
-              { icon: TrendingUp, number: "99%", label: "Satisfaction Rate" }
-            ].map((stat, index) => (
-              <div key={index} className={`space-y-3 animate-bounce-in-scale stagger-${index + 1}`}>
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto floating pulse-glow">
-                  <stat.icon className="text-primary animate-rotate-in" size={32} />
-                </div>
-                <h3 className="text-3xl font-bold text-primary">{stat.number}</h3>
-                <p className="text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Trending Section */}
         <div className="mt-16">
