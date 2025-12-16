@@ -44,8 +44,8 @@ const Home = () => {
     {
       id: 1,
       name: "Wireless Bluetooth Headphones",
-      price: 16499,
-      originalPrice: 20599,
+      price: 1499,
+      originalPrice: 2499,
       image: headphonesWirelessImage,
       rating: 4.8,
       reviews: 324,
@@ -54,8 +54,8 @@ const Home = () => {
     {
       id: 2,
       name: "4K Ultra HD Webcam",
-      price: 10799,
-      originalPrice: 14099,
+      price: 2999,
+      originalPrice: 4499,
       image: webcam4kImage,
       rating: 4.6,
       reviews: 189,
@@ -64,8 +64,8 @@ const Home = () => {
     {
       id: 3,
       name: "Gaming Mechanical Keyboard",
-      price: 7499,
-      originalPrice: 9999,
+      price: 1999,
+      originalPrice: 3499,
       image: keyboardGamingImage,
       rating: 4.9,
       reviews: 512,
@@ -74,8 +74,8 @@ const Home = () => {
     {
       id: 4,
       name: "Wireless Charging Pad",
-      price: 3299,
-      originalPrice: 4999,
+      price: 699,
+      originalPrice: 1299,
       image: chargingPadImage,
       rating: 4.5,
       reviews: 267,
@@ -84,8 +84,8 @@ const Home = () => {
     {
       id: 5,
       name: "Smart Watch Pro",
-      price: 24999,
-      originalPrice: 33299,
+      price: 3999,
+      originalPrice: 6999,
       image: smartwatchProImage,
       rating: 4.7,
       reviews: 891,
@@ -94,8 +94,8 @@ const Home = () => {
     {
       id: 6,
       name: "Noise Cancelling Earbuds",
-      price: 13299,
-      originalPrice: 16699,
+      price: 1799,
+      originalPrice: 2999,
       image: earbudsNoiseCancellingImage,
       rating: 4.9,
       reviews: 445,
@@ -104,8 +104,8 @@ const Home = () => {
     {
       id: 7,
       name: "Portable SSD 1TB",
-      price: 7499,
-      originalPrice: 10799,
+      price: 4499,
+      originalPrice: 6999,
       image: ssdPortableImage,
       rating: 4.8,
       reviews: 623,
@@ -114,12 +114,52 @@ const Home = () => {
     {
       id: 8,
       name: "Wireless Gaming Mouse",
-      price: 5799,
-      originalPrice: 7499,
+      price: 899,
+      originalPrice: 1499,
       image: mouseGamingImage,
       rating: 4.6,
       reviews: 789,
       badge: "Gaming"
+    },
+    {
+      id: 9,
+      name: "USB-C Hub Adapter",
+      price: 1299,
+      originalPrice: 1999,
+      image: chargingPadImage,
+      rating: 4.5,
+      reviews: 312,
+      badge: "Essential"
+    },
+    {
+      id: 10,
+      name: "Bluetooth Speaker",
+      price: 1199,
+      originalPrice: 1999,
+      image: earbudsNoiseCancellingImage,
+      rating: 4.7,
+      reviews: 456,
+      badge: "Portable"
+    },
+    {
+      id: 11,
+      name: "LED Desk Lamp",
+      price: 799,
+      originalPrice: 1299,
+      image: webcam4kImage,
+      rating: 4.4,
+      reviews: 234,
+      badge: "Home Office"
+    },
+    {
+      id: 12,
+      name: "Laptop Stand Adjustable",
+      price: 1499,
+      originalPrice: 2499,
+      image: keyboardGamingImage,
+      rating: 4.6,
+      reviews: 378,
+      badge: "Ergonomic"
     }
   ];
 
